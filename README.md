@@ -70,6 +70,26 @@ Reload SSH:
 
     sudo systemctl reload ssh
 
-Terminate session, and confirm that SSH no longer works with password authentication. This is the message you should see:
+Terminate session, and confirm that SSH no longer works with password authentication. This is the message you should see in the terminal:
 
     <default_username>@<vm_ip_address>: Permission denied (publickey).
+
+# Update packages
+
+    sudo apt-get update&&sudo apt-get upgrade
+
+# Update VM desktop environment to run at higher resolutions in Hyper-V
+
+Open root configuration file for GRUB:
+
+    sudo nano /etc/default/grub
+
+Edit the value for GRUB_CMDLINE_LINUX_DEFAULT like so:
+
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"
+
+Update GRUB:
+
+    sudo update-grub
+
+Reboot, then update the screen resolution in your desktop environment.
