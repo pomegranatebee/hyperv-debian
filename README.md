@@ -31,14 +31,6 @@ If SSH is not installed:
 
 # Configure SSH on VM
 
-Open configuration file for SSH:
-
-    sudo nano /etc/ssh/ssh_config
-
-Find and uncomment this line:
-
-    Password Authentication yes
-
 Create and secure the SSH config file:
 
     mkdir -p ~/.ssh
@@ -77,6 +69,12 @@ Open configuration file for SSH:
 
     sudo nano /etc/ssh/ssh_config
 
-Find and recomment this line:
+Find this line, uncomment and update it:
 
-    # Password Authentication yes
+    Password Authentication no
+
+Reload SSH:
+
+    sudo systemctl reload ssh
+
+Test and cofirm that SSH no longer works with password authentication.
