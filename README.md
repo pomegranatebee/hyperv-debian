@@ -14,7 +14,7 @@
 
 Log out and back in for update to take effect.
 
-# Start SSH server
+# Start and configure SSH server on VM
 
 Check that SSH is running:
     
@@ -29,18 +29,12 @@ If SSH is not installed:
 
     sudo apt-get install openssh-server
 
-# Configure SSH on VM
-
 Create and secure the SSH config file:
 
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
     touch ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
-
-After running the above terminal commands, add the public key from remote machine, then reload SSH:
-
-    sudo systemctl reload ssh
 
 # Test SSH from remote machine and remove password access
 
@@ -62,7 +56,6 @@ Reload SSH:
 
 Terminate session, then retest SSH connection using public key.
 
-    exit
     ssh caleb@<vm_ip_address>
 
 Open configuration file for SSH:
