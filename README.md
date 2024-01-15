@@ -2,15 +2,15 @@
 
 1. Download an amd64 image from https://www.debian.org/distrib/netinst. "Small CDs or USB sticks" works.
 2. Use the creation wizard in Hyper-V. Default settings are fine. Currently using "Generation 1" virtual machine for best compatibility.
-3. Create root password and store in 1Password.
-4. Create default user "caleb".
-5. Create default password and store in 1Password.
-6. Finish Debian install.
+3. Create root password and store in password manager.
+4. Create default user *<default_username>*.
+5. Create default password and store in password manager.
+6. Finish Debian install. Default settings are fine, and you can install SSH here or later.
 
 # Add default user to sudoers file
 
     su root
-    sudo adduser caleb sudo
+    sudo adduser <default_username> sudo
 
 Log out and back in for update to take effect.
 
@@ -29,7 +29,7 @@ If SSH is not installed:
 
     sudo apt-get install openssh-server
 
-Create and secure the SSH config file:
+Create and secure the SSH authorized public keys file:
 
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
@@ -42,9 +42,9 @@ Find IP address for VM:
 
     ipaddress ip address | grep -i eth0
 
-On remote machine, SSH into VM using default username and password:
+On remote machine, SSH into VM using default user password authentication:
 
-    ssh caleb@<vm_ip_address>
+    ssh <default_username>@<vm_ip_address>
 
 Open the authorized_key file and paste in the SSH public key for the remote machine:
 
@@ -54,13 +54,13 @@ Reload SSH:
 
     sudo systemctl reload ssh
 
-Terminate session, then retest SSH connection using public key.
+Terminate session, then retest SSH connection using public key authentication.
 
-    ssh caleb@<vm_ip_address>
+    ssh <default_username>@<vm_ip_address>
 
-Open configuration file for SSH:
+Open root configuration file for SSH:
 
-    sudo nano /etc/ssh/ssh_config
+    sudo nano /etc/ssh/sshd_config
 
 Find this line, uncomment and update it:
 
@@ -70,4 +70,6 @@ Reload SSH:
 
     sudo systemctl reload ssh
 
-Test and cofirm that SSH no longer works with password authentication.
+Terminate session, and confirm that SSH no longer works with password authentication. This is the message you should see:
+
+    <default_username>@<vm_ip_address>: Permission denied (publickey).
