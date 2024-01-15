@@ -31,7 +31,7 @@ If SSH is not installed:
 
 # Configure SSH on VM
 
-Edit configuration file for SSH:
+Open configuration file for SSH:
 
     sudo nano /etc/ssh/ssh_config
 
@@ -45,18 +45,38 @@ Create and secure the SSH config file:
     chmod 700 ~/.ssh
     touch ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
-    nano ~/.ssh/authorized_keys
 
 After running the above terminal commands, add the public key from remote machine, then reload SSH:
 
     sudo systemctl reload ssh
 
-# Test SSH from remote machine
+# Test SSH from remote machine and remove password access
 
 Find IP address for VM:
 
     ipaddress ip address | grep -i eth0
 
-Attempt SSH connection with remote machine:
+On remote machine, SSH into VM using default username and password:
 
     ssh caleb@<vm_ip_address>
+
+Open the authorized_key file and paste in the SSH public key for the remote machine:
+
+    nano ~/.ssh/authorized_keys
+
+Reload SSH:
+
+    sudo systemctl reload ssh
+
+Terminate session, then retest SSH connection using public key.
+
+    exit
+    ssh caleb@<vm_ip_address>
+
+Open configuration file for SSH:
+
+    sudo nano /etc/ssh/ssh_config
+
+Find and recomment this line:
+
+    # Password Authentication yes
