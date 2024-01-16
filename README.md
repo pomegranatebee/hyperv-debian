@@ -1,6 +1,6 @@
-# Install
+# Install a Debian machine on Hyper-V
 
-1. Download an amd64 image from https://www.debian.org/distrib/netinst. "Small CDs or USB sticks" works.
+1. Download an amd64 image from https://www.debian.org/distrib/netinst. "Small CDs or USB sticks" works. As of 2024-01-15, Microsoft only claims support for Debian 10/11, but I am using Debian 12 currently with no issues.
 2. Use the creation wizard in Hyper-V. Default settings are fine. Recommend "Generation 2" virtual machine. "Generation 1" virtual machines have issues if you want to use Xfce as a DE.
 3. Create root password and store in password manager.
 4. Create default user *<default_username>*.
@@ -83,6 +83,8 @@ Terminate session, and confirm that SSH no longer works with password authentica
     sudo apt-get update&&sudo apt-get upgrade
 
 # Update VM desktop environment to run at higher resolutions in Hyper-V
+
+## Optional: If you have trouble increasing screen resolution within your desktop environment
 
 Open root configuration file for GRUB:
 
