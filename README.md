@@ -82,9 +82,9 @@ Terminate session, and confirm that SSH no longer works with password authentica
 
     sudo apt-get update&&sudo apt-get upgrade
 
-# Update VM desktop environment to run at higher resolutions in Hyper-V
+# Optional: Update VM desktop environment to run at higher resolutions in Hyper-V
 
-## Optional: If you have trouble increasing screen resolution within your desktop environment
+*This step is only necessary if you have trouble increasing screen resolution within your desktop environment. With some configurations, 1024x768 is the default resolution.*
 
 Open root configuration file for GRUB:
 
