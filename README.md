@@ -1,11 +1,15 @@
 # Install
 
 1. Download an amd64 image from https://www.debian.org/distrib/netinst. "Small CDs or USB sticks" works.
-2. Use the creation wizard in Hyper-V. Default settings are fine. Currently using "Generation 1" virtual machine for best compatibility.
+2. Use the creation wizard in Hyper-V. Default settings are fine. Recommend "Generation 2" virtual machine. "Generation 1" virtual machines have issues if you want to use Xfce as a DE.
 3. Create root password and store in password manager.
 4. Create default user *<default_username>*.
 5. Create default password and store in password manager.
-6. Finish Debian install. Default settings are fine, and you can install SSH here or later.
+6. Finish Debian install, using default settings until the "Software selection" screen, where I recommend the following settings:
+   1. Debian desktop environment
+   2. Xfce
+   3. SSH Server
+   4. standard sysem utilities
 
 # Add default user to sudoers file
 
@@ -93,3 +97,4 @@ Update GRUB:
     sudo update-grub
 
 Reboot, then update the screen resolution in your desktop environment.
+
