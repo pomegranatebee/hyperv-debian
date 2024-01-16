@@ -100,3 +100,6 @@ Update GRUB:
 
 Reboot, then update the screen resolution in your desktop environment.
 
+# Optional: Update keybindings in XFCE
+
+Some keyboard shortcuts like tiling windows left/right and showing the desktop may not work by default when using XFCE. These keybindings can be updated in Windows Manager -> Keyboard.
