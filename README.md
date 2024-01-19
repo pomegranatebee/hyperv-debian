@@ -10,6 +10,8 @@
    2. SSH Server
    3. standard sysem utilities
 
+![](images/softwareselection.png)
+
 # Add default user to sudoers file
 
     su root
