@@ -51,7 +51,7 @@ Create and secure the SSH authorized public keys file:
 
 Find IP address for VM:
 
-    ipaddress ip address | grep -i eth0
+    ip address | grep -i eth0
 
 On remote machine, SSH into VM using default user password authentication:
 
