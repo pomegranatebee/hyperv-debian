@@ -6,10 +6,9 @@
 4. Create default user *<default_username>*.
 5. Create default password and store in password manager.
 6. Finish Debian install, using default settings until the "Software selection" screen, where I recommend the following settings:
-   1. Debian desktop environment
-   2. Xfce
-   3. SSH Server
-   4. standard sysem utilities
+   1. Xfce
+   2. SSH Server
+   3. standard sysem utilities
 
 # Add default user to sudoers file
 
