@@ -89,6 +89,44 @@ Terminate session, and confirm that SSH no longer works with password authentica
 
     sudo apt-get update&&sudo apt-get upgrade
 
+# Optional: Install and configure XRDP to allow remote desktop connection from a Windows machine
+
+Open a terminal and install XRDP:
+
+    sudo apt update
+    sudo apt install xrdp
+
+Enable XRDP to start on boot:
+
+    sudo systemctl enable xrdp
+
+By default, XRDP uses the Xsession file. You may need to create a new .xsession file for your user. Create or edit the file with the following command:
+
+    echo xfce4-session > ~/.xsession
+
+> [!NOTE]
+> If not using XFCE, Replace xfce4-session with the desktop environment you want to use (e.g., gnome-session).
+
+Reboot Debian:
+
+    sudo reboot
+
+Open RDC on a Windows machine and attempt a connection:
+
+![](images/rdc.png)
+
+Log in via XRDP with your default username:
+
+![](images/xrdplogin.png)
+
+If everything is configured correctly, you should see a full-resolution view of your Debian desktop:
+
+![](images/xrdpdesktop.png)
+
+# Optional: Update keybindings in XFCE
+
+Some keyboard shortcuts like tiling windows left/right and showing the desktop may not work by default when using XFCE. These keybindings can be updated in Windows Manager -> Keyboard.
+
 # Optional: Update VM desktop environment to run at higher resolutions in Hyper-V
 
 *This step is only necessary if you have trouble increasing screen resolution within your desktop environment. With some configurations, 1024x768 is the default resolution.*
@@ -107,6 +145,3 @@ Update GRUB:
 
 Reboot, then update the screen resolution in your desktop environment.
 
-# Optional: Update keybindings in XFCE
-
-Some keyboard shortcuts like tiling windows left/right and showing the desktop may not work by default when using XFCE. These keybindings can be updated in Windows Manager -> Keyboard.
