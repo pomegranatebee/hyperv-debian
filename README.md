@@ -1,4 +1,4 @@
-# Install a Debian machine on Hyper-V
+# Deploy a Debian 12 virtual machine on Hyper-V
 
 1. Download an amd64 image from https://www.debian.org/distrib/netinst. "Small CDs or USB sticks" works. As of 2024-01-15, [Microsoft only claims support for Debian 10/11](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/supported-debian-virtual-machines-on-hyper-v), but I am using Debian 12 currently with no issues.
 
